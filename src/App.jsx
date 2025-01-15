@@ -16,7 +16,7 @@ function App() {
 
    // Load todos from local storage on component mount
    useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+    const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
     
       setlists(savedTodos);
     
