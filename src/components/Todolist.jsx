@@ -10,6 +10,7 @@ const Todolist = (prompt) => {
             return i == idx ?{...elem,status: !elem.status} : elem
         })
         prompt.setlists(newlist)
+        prompt.tosavelist(newlist)
     // console.log(prompt.item.status);
     }
 
@@ -19,10 +20,11 @@ const Todolist = (prompt) => {
         const newarr = [...prompt.lists]
         newarr.splice(i,1);
         prompt.setlists(newarr)
+        prompt.tosavelist(newarr)
     }
     
     const editHandler = (idx)=>{
-        
+            
             seteditindx(idx)
             seteditingvalue(prompt.lists[idx].text)
     }
@@ -32,6 +34,7 @@ const Todolist = (prompt) => {
         })
         prompt.setlists(newarr)
         seteditindx(null)
+        prompt.tosavelist(newarr)
     }
     
     

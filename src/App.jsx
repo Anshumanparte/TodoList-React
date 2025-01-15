@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
-import Button from './components/Button'
+ 
 import Todoinput from './components/Todoinput'
 
 import Todolist from './components/Todolist'
+
 
 
 function App() {
@@ -12,16 +13,38 @@ function App() {
   const [name, setname] = useState('')
   const [status, setstatus] = useState(false)
 
+
+   // Load todos from local storage on component mount
+   useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+    
+      setlists(savedTodos);
+    
+  }, []);
+
+ 
+
+  const tosavelist = (temp)=>{
+    localStorage.setItem('todos', JSON.stringify(temp));
+  }
+
+
+
+
+
   const submitHandler = (e)=>{
           e.preventDefault()
           if(name.trim() != ''){
-            setlists([...lists,{text: name,status}])
-
+            const temp = [...lists,{text: name,status}]
+            setlists(temp)
+            tosavelist(temp)
           }
           setname('')
           setstatus(false)
+         
           
   }
+  
   
 
  
@@ -38,7 +61,7 @@ function App() {
                   <hr />
                   {lists.map((elem,idx)=>{
                     return (
-                      <Todolist item={elem}  key={idx} idx={idx} lists={lists} setname={setname} setlists={setlists} />
+                      <Todolist item={elem}  key={idx} idx={idx} lists={lists} setname={setname} setlists={setlists} tosavelist={tosavelist} />
                     )
                   })}
             </div>
