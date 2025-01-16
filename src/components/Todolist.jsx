@@ -46,8 +46,8 @@ const Todolist = (prompt) => {
         <div
         className={`${
             prompt.item.status
-            ? "flex justify-between items-center text-xl sm:text-xl mt-2 border-2 p-2 bg-green-600 text-black border-gray-400 flex-wrap gap-4 max-w-full  rounded-xl"
-            : "flex justify-between items-center  text-xl sm:text-xl mt-2 border-2 p-2 text-gray-200 flex-wrap border-gray-400 max-w-full gap-4  rounded-xl"
+            ? "flex justify-between items-center text-xl sm:text-xl mt-3 border-2 p-2 bg-green-600 text-black border-gray-400 flex-wrap gap-4 max-w-full  rounded-xl"
+            : "flex justify-between items-center  text-xl sm:text-xl mt-3 border-2 p-2 text-gray-200 flex-wrap border-gray-400 max-w-full gap-4  rounded-xl"
         }`}
         >   {editindx != prompt.idx ?(
         <li
